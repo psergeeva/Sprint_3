@@ -17,7 +17,6 @@ public class Order {
     private String[] color;
 
 
-
     public Order(String firstName, String lastName, String address, String metroStation, String phone, int rentTime, String deliveryDate, String comment, String[] color) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -95,42 +94,39 @@ public class Order {
     }
 
 
-    public static Order getRandomOrder(){
+    public static Order getRandomOrder() {
 
-        Faker faker = new Faker();
+        Faker faker = new Faker ();
 
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String address = faker.address().streetAddress();
-        String metroStation = faker.address().state();
-        String phone = faker.phoneNumber().phoneNumber();
-        int rentTime = faker.number().randomDigit();
-        String deliveryDate =  new SimpleDateFormat ("d.MM.yyyy").format(Calendar.getInstance().getTime());
-        String comment = faker.name().title();
+        String firstName = faker.name ().firstName ();
+        String lastName = faker.name ().lastName ();
+        String address = faker.address ().streetAddress ();
+        String metroStation = faker.address ().state ();
+        String phone = faker.phoneNumber ().phoneNumber ();
+        int rentTime = faker.number ().randomDigit ();
+        String deliveryDate = new SimpleDateFormat ("d.MM.yyyy").format (Calendar.getInstance ().getTime ());
+        String comment = faker.name ().title ();
         String[] color = null;
 
-        return  new Order(firstName,lastName,address, metroStation,
+        return new Order (firstName, lastName, address, metroStation,
                 phone, rentTime, deliveryDate, comment, null);
     }
 
-    public static Order getOrderWithoutColor(){
+    public static Order getOrderWithoutColor() {
 
-        Order order = getRandomOrder();
+        Order order = getRandomOrder ();
         order.color = null;
 
         return order;
     }
-    public static Order getOrderWithColor(String[] color){
 
-        Order order = getRandomOrder();
+    public static Order getOrderWithColor(String[] color) {
+
+        Order order = getRandomOrder ();
         order.color = color;
 
         return order;
     }
-
-
-
-
 
 
 }

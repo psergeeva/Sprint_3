@@ -2,6 +2,7 @@ package ru.praktikum_services.qa_scooter;
 
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
+
 import static io.restassured.RestAssured.given;
 
 public class OrderClient extends ScooterRestClient {
@@ -9,7 +10,7 @@ public class OrderClient extends ScooterRestClient {
     private static final String ORDER_PATH = "/api/v1/orders/";
 
     @Step("Get list of orders")
-    public ValidatableResponse getAllOrders(){
+    public ValidatableResponse getAllOrders() {
         return given ()
                 .spec (getBaseSpec ())
                 .when ()
@@ -18,10 +19,10 @@ public class OrderClient extends ScooterRestClient {
     }
 
     @Step("Cancel order")
-    public ValidatableResponse cancelOrder(Order order){
-        return given()
-                .spec(getBaseSpec ())
-                .body(order)
+    public ValidatableResponse cancelOrder(Order order) {
+        return given ()
+                .spec (getBaseSpec ())
+                .body (order)
                 .when ()
                 .get (ORDER_PATH + "cancel")
                 .then ()
@@ -30,13 +31,13 @@ public class OrderClient extends ScooterRestClient {
     }
 
     @Step("Create order")
-    public ValidatableResponse createOrder (Order order){
+    public ValidatableResponse createOrder(Order order) {
         return given ()
-                .spec(getBaseSpec ())
-                .body(order)
+                .spec (getBaseSpec ())
+                .body (order)
                 .when ()
                 .post (ORDER_PATH)
-                .then()
+                .then ()
                 .assertThat ()
                 .statusCode (200);
     }

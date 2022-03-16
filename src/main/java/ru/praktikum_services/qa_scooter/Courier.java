@@ -8,11 +8,11 @@ public class Courier {
     private String password;
     private String firstName;
 
-    public Courier(){
+    public Courier() {
 
     }
 
-    public Courier(String login,String password, String firstName){
+    public Courier(String login, String password, String firstName) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
@@ -46,26 +46,26 @@ public class Courier {
     }
 
     public static Courier getRandom() {
-        final String login = RandomStringUtils.randomAlphabetic(10);
-        final String password = RandomStringUtils.randomAlphabetic(10);
-        final String firstName = RandomStringUtils.randomAlphabetic(10);
-        return new Courier(login, password, firstName);
+        final String login = RandomStringUtils.randomAlphabetic (10);
+        final String password = RandomStringUtils.randomAlphabetic (10);
+        final String firstName = RandomStringUtils.randomAlphabetic (10);
+        return new Courier (login, password, firstName);
     }
 
-    public static Courier getCourierWithLoginOnly(){
-        return new Courier().setLogin(RandomStringUtils.randomAlphabetic(10));
-    }
-    public static Courier getCourierWithPasswordOnly(){
-        return new Courier().setPassword(RandomStringUtils.randomAlphabetic(10));
+    public static Courier getCourierWithLoginOnly() {
+        return new Courier ().setLogin (RandomStringUtils.randomAlphabetic (10));
     }
 
-    public static Courier getCourierWithFirstnameOnly(){
-        return new Courier().setFirstName(RandomStringUtils.randomAlphabetic(10));
+    public static Courier getCourierWithPasswordOnly() {
+        return new Courier ().setPassword (RandomStringUtils.randomAlphabetic (10));
     }
 
-    public static Courier getCourierWithLoginAndPassword(){
-        return new Courier().setLogin(RandomStringUtils.randomAlphabetic(10)).setPassword(RandomStringUtils.randomAlphabetic(10));
+    public static Courier getCourierWithFirstnameOnly() {
+        return new Courier ().setFirstName (RandomStringUtils.randomAlphabetic (10));
     }
 
+    public static Courier getCourierWithLoginAndPassword() {
+        return new Courier ().setLogin (RandomStringUtils.randomAlphabetic (10)).setPassword (RandomStringUtils.randomAlphabetic (10));
+    }
 
 }

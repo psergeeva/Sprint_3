@@ -20,28 +20,27 @@ public class LoginTest {
     int courierID;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         courierClient = new CourierClient ();
-        courier = Courier.getRandom();
-        //createID=
-        courierClient.create(courier);
+        courier = Courier.getRandom ();
+        courierClient.create (courier);
     }
 
     @After
-    public void tearDown(){
-        courierClient.delete(courierID);
+    public void tearDown() {
+        courierClient.delete (courierID);
     }
 
     @Test
     @DisplayName("Courier can log in")
-    public void courierCanLoginWithValidCredentials(){
+    public void courierCanLoginWithValidCredentials() {
 
-        ValidatableResponse loginResponse = courierClient.login (new CourierCredentials(courier.getLogin(),courier.getPassword()));
+        ValidatableResponse loginResponse = courierClient.login (new CourierCredentials (courier.getLogin (), courier.getPassword ()));
         int statusCode = loginResponse.extract ().statusCode ();
-        courierID = loginResponse.extract ().path("id");
+        courierID = loginResponse.extract ().path ("id");
 
-        assertThat("Courier cannot login", statusCode, equalTo(SC_OK));
-        assertThat("Courier ID is incorrect", courierID, is(CoreMatchers.not (0)));
+        assertThat ("Courier cannot login", statusCode, equalTo (SC_OK));
+        assertThat ("Courier ID is incorrect", courierID, is (CoreMatchers.not (0)));
     }
 
 }

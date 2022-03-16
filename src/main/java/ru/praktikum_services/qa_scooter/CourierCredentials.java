@@ -25,14 +25,4 @@ public class CourierCredentials {
         courier.setPassword (RandomStringUtils.randomAlphabetic (5));
         return new CourierCredentials (courier.getLogin (), courier.getPassword ());
     }
-
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
 }

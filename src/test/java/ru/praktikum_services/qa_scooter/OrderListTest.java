@@ -13,7 +13,6 @@ import static org.junit.Assert.assertFalse;
 
     public class OrderListTest {
         OrderClient orderClient;
-        Order order;
 
         @Before
         public void  setUp(){
@@ -37,7 +36,6 @@ import static org.junit.Assert.assertFalse;
             assertEquals (sizeListOfIdOrders,sizeListOrders);
 
         }
-
 
     }
 
